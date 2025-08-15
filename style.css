@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    background: #f8f9fa;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+}
+
+nav.scrolled {
+    background: rgba(0, 115, 230, 0.95);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 3px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ffdf5d;
+    border-bottom: 2px solid #ffdf5d;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #0073e6, #005bb5);
+    color: white;
+    padding: 80px 0 40px; /* Extra padding for navbar */
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header a {
+    color: #ffdf5d;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: white;
+}
+
+/* CONTAINERS */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* SECTION HEADINGS */
+h2 {
+    margin-bottom: 10px;
+    border-bottom: 3px solid #0073e6;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size: 1.6rem;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin-bottom: 8px;
+    color: #0073e6;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* FOOTER */
+footer {
+    background: #0073e6;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* ANIMATIONS */
+.fade-in, .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible, .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESUME BUTTONS */
+.resume-buttons {
+    margin-top: 15px;
+    animation: fadeUpBounce 1s ease-out;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeUpBounce 0.8s ease forwards;
+}
+
+.view-btn {
+    background-color: #ffdf5d;
+    color: #333;
+    animation-delay: 0.2s;
+}
+
+.view-btn:hover {
+    background-color: #ffc107;
+    transform: scale(1.05);
+}
+
+.download-btn {
+    background-color: white;
+    color: #0073e6;
+    border: 2px solid #0073e6;
+    animation-delay: 0.4s;
+}
+
+.download-btn:hover {
+    background-color: #0073e6;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* KEYFRAME ANIMATIONS */
+@keyframes fadeUpBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+}

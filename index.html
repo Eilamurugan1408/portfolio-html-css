@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eilamurugan Sankar - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <h2 class="logo">Eilamurugan</h2>
+            <ul>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container fade-in">
+            <h1>Eilamurugan Sankar</h1>
+            <p>
+                <a href="mailto:eilamurugan2005@gmail.com">eilamurugan2005@gmail.com</a> |
+                <a href="https://www.leetcode.com/u/Eilamurugan" target="_blank">LeetCode</a> |
+                <a href="https://www.linkedin.com/in/eilamurugan-sankar" target="_blank">LinkedIn</a>
+            </p>
+            <div class="resume-buttons">
+                <a href="Resume2025.pdf" target="_blank" class="btn view-btn">View Resume</a>
+                <a href="Resume2025.pdf" download class="btn download-btn">Download Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Education -->
+    <section id="education" class="container fade-up">
+        <h2>Education</h2>
+        <div class="card">
+            <h3>SRM Institute of Science & Technology</h3>
+            <p>B.Tech in Computer Science & Engineering (2023–2027)</p>
+            <p>GPA: 9.47/10.0</p>
+        </div>
+        <div class="card">
+            <h3>Modern Senior Secondary School (CBSE)</h3>
+            <p>Senior Secondary (XII) - 2023</p>
+            <p>Percentage: 92.4%</p>
+        </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="container fade-up">
+        <h2>Work Experience</h2>
+        <div class="card">
+            <h3>Python Developer Intern – Techplement (Jun 2025 - Jul 2025)</h3>
+            <ul>
+                <li>Developed an automation tool using Python & SMTP for customized bulk emails.</li>
+                <li>Configured secure authentication & ports for reliable communication.</li>
+                <li>Enhanced workflows with dynamic message handling.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container fade-up">
+        <h2>Projects</h2>
+        <div class="card">
+            <h3>Hotel Booking Website</h3>
+            <p>Dynamic website with HTML, CSS, JS, PHP, and SQL database integration.</p>
+            <p>Features: Authentication, booking, payment, responsive UI.</p>
+        </div>
+        <div class="card">
+            <h3>Exploratory Data Analysis on Mobile Usage Data</h3>
+            <p>Analyzed datasets using Python, Pandas, NumPy.</p>
+            <p>Created visualizations using Matplotlib, Seaborn; identified user segments.</p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="container fade-up">
+        <h2>Technical Skills</h2>
+        <ul>
+            <li><strong>Languages:</strong> Python, C++, C, Java, HTML, CSS, JavaScript</li>
+            <li><strong>Technologies:</strong> MySQL, PostgreSQL</li>
+            <li><strong>Skills:</strong> EDA with NumPy & Python</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fade-in">
+        <p>© 2025 Eilamurugan Sankar</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Scroll Animation
+        const elements = document.querySelectorAll('.fade-in, .fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        elements.forEach(el => observer.observe(el));
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            setActiveLink();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href'))
+                    .scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Active link highlight
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        function setActiveLink() {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+            });
+        }
+    </script>
+</body>
+</html>
